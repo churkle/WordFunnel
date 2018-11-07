@@ -12,7 +12,8 @@ class WordFunnelGenerator
 		~WordFunnelGenerator();
 
 	private:
-		std::string filePath;
+		std::string filePath = "";
 		std::vector<WordFunnel> funnels;
+
 		void GenerateFunnelsFromFile();
 };
