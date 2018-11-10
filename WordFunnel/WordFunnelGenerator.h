@@ -2,18 +2,23 @@
 // Generates Word Funnels from a file that contains a list of words separated by newlines
 
 #include <string>;
-#include <vector>
+#include <unordered_map>
 #include "WordFunnel.h"
 
-class WordFunnelGenerator
+namespace WordFunnelProject
 {
+	class WordFunnelGenerator
+	{
 	public:
 		WordFunnelGenerator(std::string filePathName);
 		~WordFunnelGenerator();
+		int GetLongestFunnel(std::string word);
 
 	private:
 		std::string filePath = "";
-		std::vector<WordFunnel> funnels;
+		std::unordered_map<std::string, WordFunnel*> funnels;
 
-		void GenerateFunnelsFromFile();
-};
+		void ReadWordsFromFile();
+		void GenerateFunnel(std::string word);
+	};
+}

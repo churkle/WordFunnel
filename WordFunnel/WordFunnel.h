@@ -1,13 +1,21 @@
 #pragma once
 #include <string>
 
-class WordFunnel
+namespace WordFunnelProject
 {
+	class WordFunnel
+	{
 	public:
 		WordFunnel(std::string startingWord);
+		bool IsGenerated();
+		int GetLongestFunnelLength();
+		void GenerateFunnel();
 		~WordFunnel();
 
 	private:
-		private std::vector<std::string> wordsInFunnel;
-
-};
+		std::string startingWord;
+		bool isGenerated;
+		int longestFunnelLength;
+		std::vector<std::vector<std::string>> wordsInFunnel;
+	};
+}
